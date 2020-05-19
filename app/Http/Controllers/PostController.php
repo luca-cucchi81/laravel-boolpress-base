@@ -17,10 +17,11 @@ class PostController extends Controller
         $posts = Post::all();
         return view('posts.index', compact('posts'));
 
-        // $published = Post::where('published', '=', 1)->get();
-        //
-        // return view('posts.published', compact('published'));
+    }
 
+    public function index2(){
+        $published = Post::where('published', '=', 1)->get();
+        return view('posts.published', compact('published'));
     }
 
     /**
