@@ -13,9 +13,9 @@
             <div class="row">
                 <div>
                     <a href="{{route('posts.show', $post->slug)}}"><h2>{{$post->title}}</h2></a>
-                    <small>Autore: {{$post->author}}</small>
+                    <small><b>Autore: {{$post->author}}</b></small>
                     <div>
-                        <small>Created: {{$post->created_at}}</small>
+                        <small><b>Created: {{$post->created_at}}</b></small>
                     </div>
                     <div class="col-4 offset-4">
                         <img src="{{$post->img}}" alt="foto">
