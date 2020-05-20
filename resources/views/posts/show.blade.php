@@ -14,6 +14,9 @@
                 <h2>{{$post->title}}</h2>
                 <small>Scritto da {{$post->author}}</small>
                 <div>
+                    <small>Created: {{$post->created_at}}</small>
+                </div>
+                <div class="col-4 offset-4">
                     <img src="{{$post->img}}" alt="{{$post->title}}">
                 </div>
 
