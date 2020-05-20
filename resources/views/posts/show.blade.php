@@ -10,14 +10,14 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" style="margin-top: 20px; padding: 10px; background: lightgrey; border-radius: 10px;">
                 <h2>{{$post->title}}</h2>
                 <small><b>Autore: {{$post->author}}</b></small>
                 <div>
                     <small><b>Created: {{$post->created_at}}</b></small>
                 </div>
                 <div class="col-4 offset-4">
-                    <img src="{{$post->img}}" alt="{{$post->title}}">
+                    <img src="{{$post->img}}" style="padding: 30px 0;" alt="{{$post->title}}">
                 </div>
 
                 <div>
