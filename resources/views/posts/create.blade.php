@@ -6,6 +6,15 @@
         <title>Create Posts</title>
     </head>
     <body>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="container col-12">
             <form action="{{route('posts.store')}}" method="post">
             @csrf
@@ -45,8 +54,8 @@
                     <input type="radio" style="transform: scale(2);" id="not-published" name="published" value="0">
                 </div>
 
-                <div style="margin-top: 10px;">
-                  <input type="submit" value="Salva">
+                <div style="margin: 20px 100px;">
+                  <input style="transform: scale(1.5); width: 5%; background: lightgreen; border: 2px solid green; border-radius: 5px;"type="submit" value="Salva">
                 </div>
 
             </form>
