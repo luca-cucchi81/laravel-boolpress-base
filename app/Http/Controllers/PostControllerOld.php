@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Validator;
-
 
 class PostController extends Controller
 {
@@ -18,8 +15,13 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        dd($posts);
         return view('posts.index', compact('posts'));
+
+    }
+
+    public function index2(){
+        $published = Post::where('published', '=', 1)->get();
+        return view('posts.published', compact('published'));
     }
 
     /**
@@ -29,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        //
     }
 
     /**
@@ -40,29 +42,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data= $request->all();
-        $data['slug'] = Str::slug($data['title'] , '-');
-
-        $validator = Validator::make($data, [
-            'title' => 'required|string|max:150',
-            'body' => 'required',
-            'author' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('posts/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $newPost= new Post;
-        $newPost->fill($data);
-        $saved= $newPost->save();
-        if(!$saved) {
-           dd('errore di salvataggio');
-       }
-
-        return redirect()->route('posts.show', $newPost->slug);
+        //
     }
 
     /**
@@ -71,15 +51,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-         $post = Post::where('slug', $slug)->first();
-
-         if(empty($post)){
-            abort('404');
-        }
-
-        return view('posts.show', compact('post'));
+        //
     }
 
     /**
