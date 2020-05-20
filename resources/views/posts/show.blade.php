@@ -12,6 +12,6 @@
         <div>
           {{$post->body}}
         </div>
-        <img src="{{$post->img}}" alt="{{$post->title}}">
+        <img src="{{$nepost->img}}" alt="{{$post->title}}">
 </body>
 </html>

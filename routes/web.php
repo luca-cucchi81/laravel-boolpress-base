@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', 'PostController@index')->name('posts.index');
-// Route::get('/published', 'PostController@index2')->name('posts.published');
+Route::get('posts/published', 'PostController@index2')->name('posts.published');
 
 Route::resource('posts', 'PostController');
