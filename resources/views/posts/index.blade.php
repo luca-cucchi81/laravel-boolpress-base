@@ -9,19 +9,20 @@
 </head>
 <body>
     @foreach ($posts as $post)
-        <div class="container">
+        <div class="container col-11">
             <div class="row">
-                <div class="col-12">
+                <div>
                     <a href="{{route('posts.show', $post->slug)}}"><h2>{{$post->title}}</h2></a>
                     <small>Autore: {{$post->author}}</small>
                     <div>
+                        <small>Created: {{$post->created_at}}</small>
+                    </div>
+                    <div class="col-4 offset-4">
                         <img src="{{$post->img}}" alt="foto">
                     </div>
                     <p>{{$post->body}}</p>
 
-                    <div>
-                        <small>Created: {{$post->created_at}}</small>
-                    </div>
+
                 </div>
             </div>
         </div>
