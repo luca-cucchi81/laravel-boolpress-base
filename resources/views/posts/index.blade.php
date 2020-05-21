@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container col-12 col-sm-12 col-md-12 col-xl-12">
+    <div class="container col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <h1 style="padding: 30px 0;">Luca's Blog</h1>
     </div>
 
@@ -21,7 +21,7 @@
                     <div>
                         <small><b>Created: {{$post->created_at}}</b></small>
                     </div>
-                    <div class="col-xl-6">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                         <img src="{{$post->img}}" style="width: 100%; padding: 30px 0;" alt="foto">
                     </div>
                     <p>{{$post->body}}</p>
