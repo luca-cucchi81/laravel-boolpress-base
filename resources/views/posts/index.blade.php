@@ -32,7 +32,9 @@
                         <form style="float: left; margin-right: 15px" action="{{route('posts.edit', $post->id)}}">
                             <button style="border: 2px solid blue; border-radius: 5px;" type="submit">Modifica</button>
                         </form>
-                        <form style="float: left;" action="{{route('posts.destroy', $post->id)}}">
+                        <form style="float: left;" action="{{route('posts.destroy', $post->id)}}" method='post'>
+                            @csrf
+                            @method('DELETE')
                             <button style="border: 2px solid blue; border-radius: 5px;" type="submit">Cancella</button>
                         </form>
                     </div>

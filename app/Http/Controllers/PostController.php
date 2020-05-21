@@ -146,10 +146,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
+       $post = Post::find($id);
+       if (empty($post)) {
+           abort('404');
+       }
+
         $post->delete();
 
-        return view('posts.index');
+        return redirect()->route('posts.index');
     }
 }

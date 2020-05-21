@@ -9,7 +9,7 @@
 </head>
 <body>
     @foreach ($published as $post)
-        <div class="container col-11">
+        <div class="container col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row">
                 <div style="margin-top: 20px; padding: 10px; background: lightgrey; border-radius: 10px;">
                     <a href="{{route('posts.show', $post->slug)}}"><h2>{{$post->title}}</h2></a>
