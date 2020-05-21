@@ -94,6 +94,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        if (empty($post)) {
+            abort('404');
+        }
+
         return view('posts.edit', compact('post'));
     }
 
@@ -106,7 +110,34 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updatedPost= Post::find($id);
+
+        if (empty($updatedPost)) {
+            abort('404');
+        }
+
+        $data= $request->all();
+        $data['slug'] = Str::slug($data['title'] , '-');
+
+        $validator = Validator::make($data, [
+            'title' => 'required|string|max:150',
+            'body' => 'required',
+            'author' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('posts/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $updatedPost->fill($data);
+        $updated= $updatedPost->save();
+        if(!$updated) {
+        dd('errore aggiornamento');
+        }
+
+        return redirect()->route('posts.show', $updatedPost->slug);
     }
 
     /**
