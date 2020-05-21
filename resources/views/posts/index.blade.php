@@ -27,6 +27,17 @@
                         <img src="{{$post->img}}" style="padding: 30px 0;" alt="foto">
                     </div>
                     <p>{{$post->body}}</p>
+                    <div style="display: inline-block;">
+                        <form style="float: left; margin-right: 15px" action="{{route('posts.show', $post->slug)}}">
+                            <button style="border: 2px solid blue; border-radius: 5px;" type="submit">Visualizza</button>
+                        </form>
+                        <form style="float: left; margin-right: 15px" action="{{route('posts.edit', $post->id)}}">
+                            <button style="border: 2px solid blue; border-radius: 5px;" type="submit">Modifica</button>
+                        </form>
+                        <form style="float: left;" action="{{route('posts.destroy', $post->id)}}">
+                            <button style="border: 2px solid blue; border-radius: 5px;" type="submit">Cancella</button>
+                        </form>
+                    </div>
 
 
                 </div>
