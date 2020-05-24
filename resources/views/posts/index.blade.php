@@ -8,12 +8,26 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <h1 style="padding: 30px 0;">Luca's Blog</h1>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Luca's Blog</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{route('posts.index')}}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('posts.published')}}">Published Posts</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     @foreach ($posts as $post)
-        <div class="container col-12">
+        <div class="container col-12 col-sm-12 col-md-12 col-lg-8 col-xl-10">
             <div class="row">
                 <div style="margin-top: 20px; padding: 10px; background: lightgrey; border-radius: 10px;">
                     <a href="{{route('posts.show', $post->slug)}}"><h2>{{$post->title}}</h2></a>
@@ -27,15 +41,15 @@
                     <p>{{$post->body}}</p>
                     <div style="display: inline-block;">
                         <form style="float: left; margin-right: 15px" action="{{route('posts.show', $post->slug)}}">
-                            <button style="border: 2px solid blue; border-radius: 5px;" type="submit">Visualizza</button>
+                            <button class="btn btn-primary" type="submit">Visualizza</button>
                         </form>
                         <form style="float: left; margin-right: 15px" action="{{route('posts.edit', $post->id)}}">
-                            <button style="border: 2px solid blue; border-radius: 5px;" type="submit">Modifica</button>
+                            <button class="btn btn-secondary" type="submit">Modifica</button>
                         </form>
                         <form style="float: left;" action="{{route('posts.destroy', $post->id)}}" method='post'>
                             @csrf
                             @method('DELETE')
-                            <button style="border: 2px solid blue; border-radius: 5px;" type="submit">Cancella</button>
+                            <button class="btn btn-danger" type="submit">Cancella</button>
                         </form>
                     </div>
 
