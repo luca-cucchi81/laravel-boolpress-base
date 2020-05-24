@@ -15,49 +15,44 @@
                 </ul>
             </div>
         @endif
-        <div class="container col-12">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold text-center" style="margin-bottom: 30px;">Edit Post</h1>
             <form action="{{route('posts.update', $post->id)}}" method="post">
-            @csrf
-            @method('PUT')
-                <div>
-                    <label for="title" style="margin-top: 10px; font-weight: bold;">Titolo</label>
-                    <div>
-                        <input type="text" style="width: 15%;" placeholder="Inserisci il titolo" name="title" value="{{$post->title}}">
-                    </div>
-                </div>
+                @csrf
+                @method('PUT')
+              <div class="form-group">
+                <label for="title" class="font-weight-bold">Titolo</label>
+                <input type="text" class="form-control" placeholder="Enter Title" value="{{$post->title}}">
+              </div>
 
-                <div>
-                    <label for="author" style="margin-top: 10px; font-weight: bold;">Autore</label>
-                    <div>
-                        <input type="text" style="width: 15%;" placeholder="Inserisci l'autore" name="author" value="{{$post->author}}">
-                    </div>
-                </div>
+              <div class="form-group">
+                <label for="author" class="font-weight-bold">Author</label>
+                <input type="text" class="form-control" placeholder="Enter Author" value="{{$post->author}}">
+              </div>
 
-                <div>
-                    <label for="img" style="margin-top: 10px; font-weight: bold;">Immagine</label>
-                    <div>
-                        <input type="text" style="width: 15%;" placeholder="Inserisci path immagine" name="img" value="{{$post->img}}">
-                    </div>
-                </div>
+              <div class="form-group">
+                <label for="img" class="font-weight-bold">Image</label>
+                <input type="text" class="form-control" placeholder="Enter Image Path" value="{{$post->img}}">
+              </div>
 
-                <div>
-                    <label for="body" style="margin-top: 10px; font-weight: bold;">Testo</label>
-                    <div>
-                        <textarea name="body" cols="50" rows="10">{{$post->body}}</textarea>
-                    </div>
-                </div>
+              <div class="form-group">
+                <label for="body" class="font-weight-bold">Body</label>
+                <textarea class="form-control text-justify" cols="50" rows="10">{{$post->body}}</textarea>
+              </div>
 
-                <div style="margin-top: 10px;">
-                    <label for="published" style="margin-right: 10px;">Pubblicato</label>
-                    <input type="radio" style="transform: scale(2);" id="published" name="published" value="1" {{($post->published == 1) ? 'checked' : ''}}>
-                    <label for="not-published" style="margin: 0 10px;">Non Pubblicato</label>
-                    <input type="radio" style="transform: scale(2);" id="not-published" name="published" value="0" {{($post->published == 0) ? 'checked' : ''}}>
-                </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="published" value="1" {{($post->published == 1) ? 'checked' : ''}}>
+                <label class="form-check-label font-italic" for="published">Published</label>
+              </div>
 
-                <div style="margin: 20px 100px;">
-                  <input style="transform: scale(1.5); width: 5%; background: lightgreen; border: 2px solid green; border-radius: 5px;"type="submit" value="Salva">
-                </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="published" value="0" {{($post->published == 0) ? 'checked' : ''}}>
+                <label class="form-check-label font-italic" for="published">Not Published</label>
+              </div>
 
+              <div style="text-align: center; padding-top: 20px;">
+                  <button type="submit" class="btn btn-primary w-50">SAVE CHANGES</button>
+              </div>
             </form>
         </div>
     </body>
