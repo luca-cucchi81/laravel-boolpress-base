@@ -30,8 +30,8 @@
         <div class="container col-12 col-sm-12 col-md-12 col-lg-8 col-xl-10">
             <div class="row">
                 <div style="margin-top: 20px; padding: 10px; background: lightgrey; border-radius: 10px;">
-                    <a href="{{route('posts.show', $post->slug)}}"><h2>{{$post->title}}</h2></a>
-                    <small><b>Autore: {{$post->author}}</b></small>
+                    <h2>{{$post->title}}</h2>
+                    <small><b>Author: {{$post->author}}</b></small>
                     <div>
                         <small><b>Created: {{$post->created_at}}</b></small>
                     </div>

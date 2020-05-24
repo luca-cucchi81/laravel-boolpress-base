@@ -25,18 +25,18 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link btn btn-primary" style="color: white;" href="{{route('posts.create')}}">New Post</a>
+              <a class="nav-link btn btn-success font-weight-bold" style="color: white;" href="{{route('posts.create')}}">New Post</a>
             </li>
         </ul>
       </div>
     </nav>
 
     @foreach ($posts as $post)
-        <div class="container-fluid position-relative" style="top: 70px;">
+        <div class="container-fluid col-11 position-relative" style="top: 70px;">
             <div class="row">
                 <div style=" margin-bottom: 20px; padding: 10px; background: lightgrey; border-radius: 10px;">
                     <h2>{{$post->title}}</h2>
-                    <small><b>Autore:</small> {{$post->author}}</b><br>
+                    <small><b>Author:</small> {{$post->author}}</b><br>
                     <small><b>Created: {{$post->created_at}}</b></small>
                 <div class="container-fluid">
                     <img class="img-fluid" src="{{$post->img}}" style="padding: 30px 0;" alt="foto">
