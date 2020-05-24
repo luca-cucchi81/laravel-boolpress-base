@@ -27,33 +27,31 @@
     </nav>
 
     @foreach ($posts as $post)
-        <div class="container col-12 col-sm-12 col-md-12 col-lg-8 col-xl-10">
+        <div class="container-fluid">
             <div class="row">
                 <div style="margin-top: 20px; padding: 10px; background: lightgrey; border-radius: 10px;">
                     <a href="{{route('posts.show', $post->slug)}}"><h2>{{$post->title}}</h2></a>
-                    <small><b>Autore: {{$post->author}}</b></small>
-                    <div>
-                        <small><b>Created: {{$post->created_at}}</b></small>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                        <img src="{{$post->img}}" style="width: 100%; padding: 30px 0;" alt="foto">
-                    </div>
+                    <p><small><b>Autore:</small> {{$post->author}}</b></p>
+                    <p><small><b>Created: {{$post->created_at}}</b></small></p>
+                <div class="container-fluid">
+                    <img class="img-fluid" src="{{$post->img}}" style="padding: 30px 0;" alt="foto">
                     <p>{{$post->body}}</p>
+                </div>
                     <div style="display: inline-block;">
                         <form style="float: left; margin-right: 15px" action="{{route('posts.show', $post->slug)}}">
                             <button class="btn btn-primary" type="submit">Visualizza</button>
                         </form>
+
                         <form style="float: left; margin-right: 15px" action="{{route('posts.edit', $post->id)}}">
                             <button class="btn btn-secondary" type="submit">Modifica</button>
                         </form>
+
                         <form style="float: left;" action="{{route('posts.destroy', $post->id)}}" method='post'>
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">Cancella</button>
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
