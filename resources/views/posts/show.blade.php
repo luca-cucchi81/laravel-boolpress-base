@@ -29,8 +29,8 @@
                 <small><b>Autore:</small> {{$post->author}}</b><br>
                 <small><b>Created: {{$post->created_at}}</b></small>
 
-                <div class="container-fluid">
-                    <img src="{{$post->img}}" style="padding: 30px 0;" alt="{{$post->title}}">
+                <div class="container-fluid" style="padding: 15px 0;">
+                    <img src="{{$post->img}}" alt="{{$post->title}}">
                 </div>
 
                 <div>

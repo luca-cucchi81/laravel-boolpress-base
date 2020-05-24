@@ -38,8 +38,8 @@
                     <h2>{{$post->title}}</h2>
                     <small><b>Author:</small> {{$post->author}}</b><br>
                     <small><b>Created: {{$post->created_at}}</b></small>
-                <div class="container-fluid">
-                    <img class="img-fluid" src="{{$post->img}}" style="padding: 30px 0;" alt="foto">
+                <div class="container-fluid" style="padding: 15px 0;">
+                    <img class="img-fluid" src="{{$post->img}}" alt="foto">
                     <p>{{$post->body}}</p>
                 </div>
                     <div style="display: inline-block;">
