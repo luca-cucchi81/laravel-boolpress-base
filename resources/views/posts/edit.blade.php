@@ -22,22 +22,22 @@
                 @method('PUT')
               <div class="form-group">
                 <label for="title" class="font-weight-bold">Titolo</label>
-                <input type="text" class="form-control" placeholder="Enter Title" value="{{$post->title}}">
+                <input type="text" class="form-control" placeholder="Enter Title" name="title" value="{{$post->title}}">
               </div>
 
               <div class="form-group">
                 <label for="author" class="font-weight-bold">Author</label>
-                <input type="text" class="form-control" placeholder="Enter Author" value="{{$post->author}}">
+                <input type="text" class="form-control" placeholder="Enter Author" name="author" value="{{$post->author}}">
               </div>
 
               <div class="form-group">
                 <label for="img" class="font-weight-bold">Image</label>
-                <input type="text" class="form-control" placeholder="Enter Image Path" value="{{$post->img}}">
+                <input type="text" class="form-control" placeholder="Enter Image Path" name="img" value="{{$post->img}}">
               </div>
 
               <div class="form-group">
                 <label for="body" class="font-weight-bold">Body</label>
-                <textarea class="form-control text-justify" cols="50" rows="10">{{$post->body}}</textarea>
+                <textarea class="form-control text-justify" cols="50" rows="10" name="body">{{$post->body}}</textarea>
               </div>
 
               <div class="form-check">

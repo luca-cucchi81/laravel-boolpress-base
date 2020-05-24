@@ -126,7 +126,7 @@ class PostController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('posts/create')
+            return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
