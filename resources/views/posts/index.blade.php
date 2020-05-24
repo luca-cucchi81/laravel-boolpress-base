@@ -39,7 +39,7 @@
                     <small><b>Author:</small> {{$post->author}}</b><br>
                     <small><b>Created: {{$post->created_at}}</b></small>
                 <div class="container-fluid" style="padding: 15px 0;">
-                    <img class="img-fluid" src="{{$post->img}}" alt="foto">
+                    <img class="img-fluid" src="{{$post->img}}" style="padding: 15px 0;" alt="foto">
                     <p>{{$post->body}}</p>
                 </div>
                     <div style="display: inline-block;">

@@ -30,7 +30,7 @@
                 <small><b>Created: {{$post->created_at}}</b></small>
 
                 <div class="container-fluid" style="padding: 15px 0;">
-                    <img src="{{$post->img}}" alt="{{$post->title}}">
+                    <img src="{{$post->img}}" style="padding: 15px 0;" alt="{{$post->title}}">
                 </div>
 
                 <div>

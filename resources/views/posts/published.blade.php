@@ -31,7 +31,7 @@
                     <small><b>Author:</small> {{$post->author}}</b><br>
                     <small><b>Created: {{$post->created_at}}</b></small>
                     <div class="container-fluid" style="padding: 15px 0;">
-                        <img src="{{$post->img}}" alt="foto">
+                        <img src="{{$post->img}}" style="padding: 15px 0;" alt="foto">
                     </div>
                     <p>{{$post->body}}</p>
                 </div>
