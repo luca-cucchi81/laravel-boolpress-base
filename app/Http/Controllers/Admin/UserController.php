@@ -76,11 +76,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = User::findOrFail($id);
         $data = $request->all();
 
+        if ($data['email']== $user->email) {
+            unset($data['email']);
+        }
         $validator = Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
+            'email' => 'email|unique:users',
         ]);
 
         if ($validator->fails()) {
@@ -89,13 +93,12 @@ class UserController extends Controller
                 ->withInput();
         }
 
-        $user = User::findOrFail($id);
         $user->fill($data);
         $updated = $user->update();
 
         if (!$updated) {
             return redirect()->route('admin.users.edit', $id)
-            ->with('status', 'Users not updated');
+            ->with('status', 'User not updated');
         }
 
         return redirect()->route('admin.users.show', $user->id);
@@ -109,6 +112,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        if ($user->id == Auth::id()) {
+            return redirect()->back()->with('status', 'Action not allowed');
+        }
+        $deleted = $user->delete();
+        if (!$deleted) {
+            return redirect()->back()->with('status', 'User not deleted');
+        }
+
+        return redirect()->route('admin.users.index')->with('status', 'User ' . $user->id . ' deleted');
     }
 }
