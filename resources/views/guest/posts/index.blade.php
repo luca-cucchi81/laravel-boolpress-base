@@ -13,16 +13,16 @@
     </div>
 
     @foreach ($published as $post)
-        <div class="container-fluid col-11>
+        <div class="container-fluid col-lg-11 col-xl-11">
             <div class="row">
                 <div style="margin-bottom: 20px; padding: 10px; background: lightgrey; border-radius: 10px;">
                     <h2>{{$post->title}}</h2>
                     <small><b>Author:</small> {{$post->author}}</b><br>
                     <small><b>Created: {{$post->created_at}}</b></small>
-                    <div class="container-fluid" style="padding: 15px 0;">
-                        <img src="{{$post->img}}" style="padding: 15px 0;" alt="foto">
+                    <div class="container-fluid col-lg-6 lg-offset-6 col-xl-6 xl-offset-6" style="padding: 15px 0;">
+                        <img src="{{$post->img}}" style="width: 100%; padding: 15px 0;" alt="foto">
                     </div>
-                    <p>{{$post->body}}</p>
+                    <p class="container-fluid text-justify" style="font-size: 1.2em;">{{$post->body}}</p>
                 </div>
             </div>
         </div>
