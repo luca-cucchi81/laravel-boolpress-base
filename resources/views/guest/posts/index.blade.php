@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container col-11" style="text-align: center; margin: 20px;">
-        <h2>Luca's Blog</h2>
+        <h2 class="display-4 font-weight-bold text-uppercase">Luca's Blog</h2>
     </div>
 
     @foreach ($published as $post)
