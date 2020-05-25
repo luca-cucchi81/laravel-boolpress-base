@@ -30,6 +30,6 @@ Route::prefix('admin')
     Route::resource('users', 'UserController');
 });
 
-Route::get('guest/posts', 'PostController@index2')->name('posts.published');
+Route::get('/index', 'PostController@index2')->name('posts.published');
 
 Route::resource('posts', 'PostController');
