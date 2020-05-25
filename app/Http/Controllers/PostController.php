@@ -23,7 +23,7 @@ class PostController extends Controller
 
     public function index2(){
         $published = Post::where('published', '=', 1)->get();
-        return view('posts.published', compact('published'));
+        return view('guest.posts.index', compact('published'));
     }
 
     /**

@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('posts/published', 'PostController@index2')->name('posts.published');
-
-Route::resource('posts', 'PostController');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -33,3 +29,7 @@ Route::prefix('admin')
 ->group(function(){
     Route::resource('users', 'UserController');
 });
+
+Route::get('guest/posts', 'PostController@index2')->name('posts.published');
+
+Route::resource('posts', 'PostController');
