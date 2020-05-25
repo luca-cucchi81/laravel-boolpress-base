@@ -1,9 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        <div class="col-4 offset-4 display-5" style="margin-bottom: 50px;">
+            <h2>USERS LIST</h2>
+        </div>
         <div class="container" style="text-align: right; margin-bottom: 20px;">
             <form action="{{route('admin.users.create')}}">
-                <button class="btn btn-success" type="submit">New User</button>
+                <button class="btn btn-success font-weight-bold" type="submit">New User</button>
             </form>
         </div>
         <table class="table">
